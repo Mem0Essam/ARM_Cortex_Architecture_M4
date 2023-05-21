@@ -138,12 +138,26 @@ void GPIO_voidSetOutputPinValue(u8 Copy_u8PortID,u8 Copy_u8PinID ,u8 Copy_u8Valu
 	switch(Copy_u8PortID)
 	{
 	case GPIO_PORTA :
-		/*Set Pin to a certain value*/
-		WRITE_BIT(GPIOA->ODR , Copy_u8PinID , Copy_u8Value);
+		if(Copy_u8PinID == GPIO_PIN13 || Copy_u8PinID == GPIO_PIN14 || Copy_u8PinID == GPIO_PIN15)
+		{
+			/*do noting*/
+		}
+		else
+		{
+			/*Set Pin to a certain value*/
+			WRITE_BIT(GPIOA->ODR , Copy_u8PinID , Copy_u8Value);
+		}
 		break;
 	case GPIO_PORTB :
-		/*Set Pin to a certain value*/
-		WRITE_BIT(GPIOB->ODR , Copy_u8PinID , Copy_u8Value);
+		if(Copy_u8PinID == GPIO_PIN2 || Copy_u8PinID == GPIO_PIN3 ||Copy_u8PinID == GPIO_PIN4)
+		{
+			/*do noting*/
+		}
+		else
+		{
+			/*Set Pin to a certain value*/
+			WRITE_BIT(GPIOB->ODR , Copy_u8PinID , Copy_u8Value);
+		}
 		break;
 	case GPIO_PORTC :
 		/*Set Pin to a certain value*/
