@@ -6,6 +6,8 @@ typedef signed char s8 ;
 //2byte data type
 typedef short unsigned int u16 ;
 typedef long unsigned int u32 ;
+
+#define NULL 0
 ////4byte data type
 //typedef unsigned int u32;
 //typedef signed int s32;

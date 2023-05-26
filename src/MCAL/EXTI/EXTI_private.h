@@ -22,10 +22,7 @@ typedef struct{
 typedef struct{
 	u32 MEMRMP;
 	u32 PMC;
-	u32 EXTICR1;
-	u32 EXTICR2;
-	u32 EXTICR3;
-	u32 EXTICR4;
+	u32 EXTICR[4];
 	u32 CMPCR;
 }SYSCFG_t;
 
