@@ -13,6 +13,8 @@ void SYSTICK_voidInit(void);
 
 void SYSTICK_voidDelaySync(u32 Copy_u32Delay_us);
 
+void SYSTICK_voidDelaySyncms(u32 Copy_u32Delay_ms);
+
 void SYSTICK_voidDelayAsync(u32 Copy_u32Delay_us ,void (*Copy_ptrToFunc)(void));
 
 u32 SYSTICK_u32GetRemainingTime(void);

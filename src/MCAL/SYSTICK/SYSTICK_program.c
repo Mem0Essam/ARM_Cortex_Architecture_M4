@@ -35,7 +35,7 @@ void SYSTICK_voidDelaySync(u32 Copy_u32Delay_us){
 	CLEAR_BIT( SYSTICK->CTRL , 1 );
 
 	/*2)Set LOAD register Value to get the target delay*/
-	SYSTICK->LOAD = Copy_u32Delay_us * 2 ;
+	SYSTICK->LOAD = Copy_u32Delay_us * 16 ;
 
 	/*3)RUN SYSTICK*/
 	SET_BIT( SYSTICK->CTRL , 0 );
@@ -51,7 +51,29 @@ void SYSTICK_voidDelaySync(u32 Copy_u32Delay_us){
 	SYSTICK->LOAD = 0 ;
 	SYSTICK->VAL  = 0 ;
 }
+void SYSTICK_voidDelaySyncms(u32 Copy_u32Delay_ms){
 
+	Copy_u32Delay_ms = Copy_u32Delay_ms *1000;
+	/*1)Disable Interrupt*/
+	CLEAR_BIT( SYSTICK->CTRL , 1 );
+
+	/*2)Set LOAD register Value to get the target delay*/
+	SYSTICK->LOAD = Copy_u32Delay_ms * 16 ;
+
+	/*3)RUN SYSTICK*/
+	SET_BIT( SYSTICK->CTRL , 0 );
+
+	/*4)Polling till end of target time*/
+	/*5)Clear Flag*/
+	while( GET_BIT( SYSTICK->CTRL , 16 ) == 0 );
+
+	/*6)Stop Timer*/
+	CLEAR_BIT( SYSTICK->CTRL , 0 );
+
+	/*7)Reset LOAD and VAl registers*/
+	SYSTICK->LOAD = 0 ;
+	SYSTICK->VAL  = 0 ;
+}
 void SYSTICK_voidDelayAsyncSingle(u32 Copy_u32Delay_us ,void (*Copy_ptrToFunc)(void)){
 
 
