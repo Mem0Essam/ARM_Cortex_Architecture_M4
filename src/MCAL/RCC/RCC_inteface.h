@@ -46,7 +46,7 @@ typedef enum
 
 Error_Status RCC_voidEnablePeripheralClock(u8 Copy_u8BusID , u8 Copy_u8PeripheralID);
 Error_Status RCC_voidDisablePeripheralClock(u8 Copy_u8BusID , u8 Copy_u8PeripheralID);
-//void RCC_voidSetSystemClock(void);
+void RCC_voidSetSystemClock(void);
 //Error_Status RCC_voidGPIOEnable(u8 Copy_u8GPIOID);
 //void RCC_voidCRCEnable(void);
 //Error_Status RCC_voidDMAEnable(u8 Copy_u8DMAID);

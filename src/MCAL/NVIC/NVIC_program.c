@@ -54,5 +54,5 @@ void NVIC_voidSetSoftwarePriority(u8 Copy_u8SWPriority , u8 Copy_u8INTID)
 	/*Setting both group and subpriorites into high four bits*/
 	NVIC -> IPR[Copy_u8INTID] = Copy_u8SWPriority <<4;
 
-	//TODO -> enchance the function !!!!!!!!!!!
+
 }
